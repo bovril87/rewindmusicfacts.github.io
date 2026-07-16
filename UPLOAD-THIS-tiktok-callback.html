@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Connecting TikTok to RewindDB</title>
+  <style>
+    body { margin: 0; background: #090c14; color: #fff; font: 16px Segoe UI, sans-serif; display: grid; min-height: 100vh; place-items: center; }
+    main { max-width: 560px; padding: 40px; background: #171b27; border: 1px solid #252b3b; border-radius: 18px; text-align: center; }
+    a { color: #a78bfa; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Connecting TikTok to RewindDB…</h1>
+    <p id="status">Returning authorization to the desktop app.</p>
+    <p><a id="continue" href="#">Continue manually</a></p>
+  </main>
+  <script>
+    const local = "http://127.0.0.1:8765/callback/" + window.location.search;
+    document.getElementById("continue").href = local;
+    window.location.replace(local);
+    setTimeout(() => document.getElementById("status").textContent =
+      "If RewindDB did not open automatically, select Continue manually.", 1500);
+  </script>
+</body>
+</html>
